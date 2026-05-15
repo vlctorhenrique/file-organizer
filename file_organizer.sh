@@ -14,7 +14,7 @@ moved=0
 skipped=0
 
 # Pervorre todos os arquivos da pasta
-for file in "TARGET"/*; do
+for file in "$TARGET"/*; do
 
   #ignora se não for arquivo
   [ -f "$file" ] || continue
@@ -24,14 +24,14 @@ for file in "TARGET"/*; do
   
   # Define a subpasta por tipo
   case "$ext" in
-[200~    jpg|jpeg|png|gif|svg|webp) folder="images" ;;
+    jpg|jpeg|png|gif|svg|webp) folder="images" ;;
     mp4|avi|mkv|mov)           folder="videos" ;;
     mp3|wav|ogg|flac)          folder="audio" ;;
     pdf|doc|docx|txt|odt)      folder="documents" ;;
     zip|tar|gz|rar|7z)         folder="archives" ;;
     sh|py|js|ts|html|css)      folder="code" ;;
     *)                         folder="others" ;;
-  esac~
+  esac
 
   # Cria a subpasta se não existir
   mkdir -p "$TARGET/$folder"
